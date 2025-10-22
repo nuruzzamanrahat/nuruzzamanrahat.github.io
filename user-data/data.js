@@ -25,7 +25,7 @@ const data = {
     "Adobe Illustrator",
     "Canva"
   ],
-  "work_experience": [
+  "experience": [
     {
       "title": "ACE Advisory",
       "duration": "August 2025 - Present",
@@ -110,17 +110,17 @@ const data = {
   "contactLinks": [
     {
       "label": "Email",
-      "link": "mailto:vinaysomawat40@gmail.com",
+      "link": "nuruzzamanrahat1738@gmail.com",
       "icon": "fa fa-envelope"
     },
     {
       "label": "LinkedIn",
-      "link": "https://www.linkedin.com/in/vinaysomawat/",
+      "link": "https://www.linkedin.com/in/nuruzzamanrahat1738/",
       "icon": "fa-brands fa-linkedin"
     },
     {
       "label": "GitHub",
-      "link": "https://github.com/vinaysomawat",
+      "link": "https://github.com/nuruzzamanrahat",
       "icon": "fa-brands fa-github"
     },
     {
@@ -139,7 +139,7 @@ const data = {
         },
         {
           "text": "Github",
-          "link": "https://github.com/vinaysomawat/vinaysomawat.github.io"
+          "link": "https://github.com/nuruzzamanrahat/nuruzzamanrahat.github.io"
         }
       ]
     },
@@ -159,7 +159,7 @@ const data = {
     {
       "label": "copyright-text",
       "data": [
-        "Built with HTML, CSS, JavaScript, and ❤️"
+        "Built with HTML, CSS, JavaScript"
       ]
     }
   ]
