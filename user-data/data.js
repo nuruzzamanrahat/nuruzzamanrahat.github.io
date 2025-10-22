@@ -40,15 +40,12 @@ const data = {
       "tags": [
         "HTML5",
         "SQL",
-        "Git",
         "OCR",
-        "OpenAI APIs",
         "RAG",
         "LLMs",
         "NLP",
         "Embeddings",
         "VectorDBs",
-        "Prompt Engineering"
       ],
       "icon": "industry"
     },
@@ -67,7 +64,7 @@ const data = {
         "Adobe Illustrator",
         "Canva"
       ],
-      "icon": "School"
+      "icon": "book"
     }
   ],
   "education": [
@@ -110,7 +107,7 @@ const data = {
   "contactLinks": [
     {
       "label": "Email",
-      "link": "nuruzzamanrahat1738@gmail.com",
+      "link": "mailto:nuruzzamanrahat1738@gmail.com",
       "icon": "fa fa-envelope"
     },
     {
