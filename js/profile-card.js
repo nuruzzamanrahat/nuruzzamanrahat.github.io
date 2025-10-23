@@ -5,48 +5,6 @@ async function get(url) {
   return resp.json();
 }
 
-function stackCardTemplate(user) {
-  const {
-    profile_image,
-    link,
-    reputation,
-    badge_counts: { gold, silver, bronze },
-    user_id
-  } = user;
-
-  const username = link.replace("https://", "").replace(`/users/${user_id}`, "");
-  return html`
-    <a href="${link}" target="_blank" class="profile-card">
-      <div class="profile-header">
-        <img
-          class="profile-avatar"
-          src="${profile_image}"
-          alt="StackOverflow avatar"
-        />
-        <div>
-          <div class="profile-badge badge-stack">StackOverflow</div>
-          <p class="profile-url">${username}</p>
-        </div>
-      </div>
-      <div class="profile-stats">
-        ${[
-          { label: "REPUTATION", value: reputation },
-          { label: "GOLD", value: gold },
-          { label: "SILVER", value: silver },
-          { label: "BRONZE", value: bronze },
-        ].map(
-          (stat) => html`
-            <div>
-              <p class="stat-label">${stat.label}</p>
-              <p class="stat-value">${stat.value}</p>
-            </div>
-          `
-        )}
-      </div>
-    </a>
-  `;
-}
-
 function githubCardTemplate(user) {
   const { avatar_url, public_repos, followers, html_url, following } = user;
 
@@ -77,29 +35,30 @@ function githubCardTemplate(user) {
   `;
 }
 
-function leetcodeCardTemplate(data) {
-  const { totalSolved, totalQuestions, acceptanceRate, ranking } = data;
-
-  const leetUrl = "https://leetcode.com/vinaysomawat/";
+function codeforcesCardTemplate(data) {
+  const { handle, rating, maxRating, avatar } = data;
+  
+  // Fetch problems solved count separately
+  const cfUrl = `https://codeforces.com/profile/${handle}`;
 
   return html`
-    <a href="${leetUrl}" target="_blank" class="profile-card">
+    <a href="${cfUrl}" target="_blank" class="profile-card">
       <div class="profile-header">
         <img
           class="profile-avatar"
-          src="https://cdn.iconscout.com/icon/free/png-512/free-leetcode-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-4-pack-logos-icons-2944960.png?f=webp&w=512"
-          alt="LeetCode avatar"
+          src="${avatar || 'https://cdn.iconscout.com/icon/free/png-512/free-codeforces-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-4-pack-logos-icons-2944796.png'}"
+          alt="Codeforces avatar"
         />
         <div>
-          <div class="profile-badge badge-leetcode">LeetCode</div>
-          <p class="profile-url">${leetUrl}</p>
+          <div class="profile-badge badge-codeforces">Codeforces</div>
+          <p class="profile-url">${cfUrl}</p>
         </div>
       </div>
       <div class="profile-stats">
         ${[
-          { label: "SOLVED", value: `${totalSolved}/${totalQuestions}` },
-          { label: "RANK", value: `#${ranking}` },
-          { label: "ACCEPTANCE", value: `${acceptanceRate}%` },
+          { label: "HANDLE", value: handle },
+          { label: "RATING", value: rating || "Unrated" },
+          { label: "MAX RATING", value: maxRating || "N/A" },
         ].map(
           (stat) => html`
             <div>
@@ -114,25 +73,26 @@ function leetcodeCardTemplate(data) {
 }
 
 window.addEventListener("DOMContentLoaded", async () => {
-  document.querySelectorAll(".stack-card").forEach(async (el) => {
-    const userId = el.getAttribute("user-id");
-    const { items } = await get(
-      `https://api.stackexchange.com/2.2/users/${userId}?site=stackoverflow`
-    );
-    render(stackCardTemplate(items[0]), el);
-  });
-
   document.querySelectorAll(".github-card").forEach(async (el) => {
     const username = el.getAttribute("username");
     const data = await get(`https://api.github.com/users/${username}`);
     render(githubCardTemplate(data), el);
   });
 
-  document.querySelectorAll(".leetcode-card").forEach(async (el) => {
+  document.querySelectorAll(".codeforces-card").forEach(async (el) => {
     const username = el.getAttribute("username");
-    const data = await get(
-      `https://leetcode-stats-api.herokuapp.com/${username}`
-    );
-    render(leetcodeCardTemplate(data), el);
+    try {
+      const data = await get(
+        `https://codeforces.com/api/user.info?handles=${username}`
+      );
+      if (data.status === "OK" && data.result && data.result.length > 0) {
+        render(codeforcesCardTemplate(data.result[0]), el);
+      } else {
+        el.innerHTML = "<p>Unable to load Codeforces profile</p>";
+      }
+    } catch (error) {
+      console.error("Error fetching Codeforces data:", error);
+      el.innerHTML = "<p>Error loading Codeforces profile</p>";
+    }
   });
 });
