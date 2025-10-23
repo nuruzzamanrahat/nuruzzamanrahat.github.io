@@ -3,6 +3,7 @@ import {
   skills,
   education,
   experience,
+  research,
   footer,
   contactLinks,
 } from "./user-data/data.js";
@@ -13,15 +14,16 @@ import { URLs } from "./user-data/urls.js";
 const { medium, gitConnected, gitRepo } = URLs;
 
 async function fetchBlogsFromMedium(url) {
+  if (!url) return;
   try {
     const response = await fetch(url);
     const { items, feed } = await response.json();
-    document.getElementById("profile-img").src = feed.image;
+    if (feed?.image) {
+      document.getElementById("profile-img").src = feed.image;
+    }
     populateBlogs(items, "blogs");
   } catch (error) {
-    throw new Error(
-      `Error in fetching the blogs from Medium profile: ${error}`
-    );
+    console.error("Error fetching blogs:", error);
   }
 }
 
@@ -31,7 +33,7 @@ async function fetchReposFromGit(url) {
     const items = await response.json();
     populateRepo(items, "repos");
   } catch (error) {
-    throw new Error(`Error in fetching the blogs from repos: ${error}`);
+    console.error("Error fetching repos:", error);
   }
 }
 
@@ -41,35 +43,37 @@ async function fetchGitConnectedData(url) {
     const { basics } = await response.json();
     mapBasicResponse(basics);
   } catch (error) {
-    throw new Error(`Error in fetching the blogs from git connected: ${error}`);
+    console.error("Error fetching GitConnected data:", error);
+    setFallbackProfileImage();
   }
 }
 
 function mapBasicResponse(basics) {
   const {
     name,
-    label,
     image,
-    email,
-    phone,
-    url,
-    summary,
-    profiles,
-    headline,
-    blog,
-    yearsOfExperience,
-    username,
-    locationAsString,
-    region,
-    karma,
-    id,
-    followers,
-    following,
     picture,
-    website,
   } = basics;
 
-  window.parent.document.title = name;
+  window.parent.document.title = name || "Nuruzzaman Rahat";
+  
+  const profileImg = document.getElementById("profile-img");
+  if (profileImg) {
+    const imageUrl = picture || image;
+    if (imageUrl) {
+      profileImg.src = imageUrl;
+      profileImg.onerror = () => setFallbackProfileImage();
+    } else {
+      setFallbackProfileImage();
+    }
+  }
+}
+
+function setFallbackProfileImage() {
+  const profileImg = document.getElementById("profile-img");
+  if (profileImg) {
+    profileImg.src = "https://ui-avatars.com/api/?name=Nuruzzaman+Rahat&size=150&background=f9bf3f&color=000&bold=true";
+  }
 }
 
 function populateBio(items, id) {
@@ -93,6 +97,8 @@ function populateSkills(items, id) {
 
 function populateBlogs(items, id) {
   const projectdesign = document.getElementById(id);
+  if (!projectdesign || !items?.length) return;
+  
   const createCategoryBadges = (categories) => html`
     <div class="categories-div">
       ${categories.map(
@@ -292,7 +298,6 @@ function getElement(tagName, className) {
 function getBlogDate(publishDate) {
   const elapsed = Date.now() - Date.parse(publishDate);
 
-  // Time conversions in milliseconds
   const msPerSecond = 1000;
   const msPerMinute = msPerSecond * 60;
   const msPerHour = msPerMinute * 60;
@@ -330,6 +335,7 @@ fetchReposFromGit(gitRepo);
 fetchGitConnectedData(gitConnected);
 
 populateExp_Edu(experience, "experience");
+populateExp_Edu(research, "research");
 populateExp_Edu(education, "education");
 
 populateLinks(footer, "footer");
