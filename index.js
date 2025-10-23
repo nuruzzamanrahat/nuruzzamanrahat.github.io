@@ -11,16 +11,22 @@ import { html, render } from "https://unpkg.com/lit-html?module";
 
 import { URLs } from "./user-data/urls.js";
 
-const { medium, gitConnected, gitRepo } = URLs;
+const { medium, gitConnected, gitRepo, linkedInImage } = URLs;
+
+// Set LinkedIn profile image immediately
+function setLinkedInImage() {
+  const profileImg = document.getElementById("profile-img");
+  if (profileImg && linkedInImage) {
+    profileImg.src = linkedInImage;
+    profileImg.onerror = () => setFallbackProfileImage();
+  }
+}
 
 async function fetchBlogsFromMedium(url) {
   if (!url) return;
   try {
     const response = await fetch(url);
     const { items, feed } = await response.json();
-    if (feed?.image) {
-      document.getElementById("profile-img").src = feed.image;
-    }
     populateBlogs(items, "blogs");
   } catch (error) {
     console.error("Error fetching blogs:", error);
@@ -44,29 +50,12 @@ async function fetchGitConnectedData(url) {
     mapBasicResponse(basics);
   } catch (error) {
     console.error("Error fetching GitConnected data:", error);
-    setFallbackProfileImage();
   }
 }
 
 function mapBasicResponse(basics) {
-  const {
-    name,
-    image,
-    picture,
-  } = basics;
-
+  const { name } = basics;
   window.parent.document.title = name || "Nuruzzaman Rahat";
-  
-  const profileImg = document.getElementById("profile-img");
-  if (profileImg) {
-    const imageUrl = picture || image;
-    if (imageUrl) {
-      profileImg.src = imageUrl;
-      profileImg.onerror = () => setFallbackProfileImage();
-    } else {
-      setFallbackProfileImage();
-    }
-  }
 }
 
 function setFallbackProfileImage() {
@@ -325,6 +314,9 @@ function getBlogDate(publishDate) {
     return years == 1 ? `${years} year ago` : `${years} years ago`;
   }
 }
+
+// Set LinkedIn image first
+setLinkedInImage();
 
 populateBio(bio, "bio");
 
