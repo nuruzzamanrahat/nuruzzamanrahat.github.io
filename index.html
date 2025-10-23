@@ -247,18 +247,87 @@
                 data-animate-effect="fadeInLeft"
               >
                 <div class="about-desc">
-                  <h1>Contact</h1>
+                  <h1>Get In <span style="color: #f9bf3f">Touch</span></h1>
                 </div>
-                <p>
-                  Feel free to email me at
-                  <strong>nuruzzamanrahat1738@gmail.com</strong> for 
-                  discussions, collaboration, job opportunities, or just to say hello—I'd
-                  love to hear from you!
+                <p style="text-align: center; color: #999; margin-bottom: 30px;">
+                  Have a question or want to collaborate? Feel free to reach out through the form below.
                 </p>
-                <div id="contact-links"></div>
+                
+                <!-- Contact Form -->
+                <div style="max-width: 700px; margin: 0 auto;">
+                  <form id="contactForm" style="background: linear-gradient(135deg, rgb(255, 221, 153), rgb(249, 191, 63)); padding: 40px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 20px;">
+                      <label for="userEmail" style="display: block; font-weight: 600; margin-bottom: 8px; color: #000;">Your Email</label>
+                      <input 
+                        type="email" 
+                        id="userEmail" 
+                        name="userEmail" 
+                        placeholder="youremail@example.com" 
+                        required
+                        style="width: 100%; padding: 12px; border: 1px solid rgba(0,0,0,0.1); border-radius: 5px; font-size: 14px; background: rgba(255,255,255,0.9);"
+                      />
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                      <label for="userMessage" style="display: block; font-weight: 600; margin-bottom: 8px; color: #000;">Your Message</label>
+                      <textarea 
+                        id="userMessage" 
+                        name="userMessage" 
+                        rows="6" 
+                        placeholder="Write your message here..." 
+                        required
+                        style="width: 100%; padding: 12px; border: 1px solid rgba(0,0,0,0.1); border-radius: 5px; font-size: 14px; resize: vertical; background: rgba(255,255,255,0.9);"
+                      ></textarea>
+                    </div>
+                    
+                    <button 
+                      type="submit" 
+                      style="width: 100%; padding: 15px; background: #000; color: #f9bf3f; border: none; border-radius: 5px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;"
+                      onmouseover="this.style.background='#333'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.3)';"
+                      onmouseout="this.style.background='#000'; this.style.transform='translateY(0)'; this.style.boxShadow='none';"
+                    >
+                      Send Message
+                    </button>
+                    
+                    <div id="formMessage" style="margin-top: 15px; text-align: center; font-weight: 600;"></div>
+                  </form>
+                </div>
+                
+                <div style="margin-top: 40px;">
+                  <p style="text-align: center; margin-bottom: 20px;">Or connect with me directly:</p>
+                  <div id="contact-links"></div>
+                </div>
               </div>
             </div>
           </section>
+          
+          <script>
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+              e.preventDefault();
+              
+              const email = document.getElementById('userEmail').value;
+              const message = document.getElementById('userMessage').value;
+              const formMessage = document.getElementById('formMessage');
+              
+              // Create mailto link
+              const subject = encodeURIComponent('Message from Portfolio Contact Form');
+              const body = encodeURIComponent(`From: ${email}\n\nMessage:\n${message}`);
+              const mailtoLink = `mailto:nuruzzamanrahat1738@gmail.com?subject=${subject}&body=${body}`;
+              
+              // Open email client
+              window.location.href = mailtoLink;
+              
+              // Show success message
+              formMessage.style.color = '#000';
+              formMessage.innerHTML = '✓ Opening your email client...';
+              
+              // Reset form
+              setTimeout(() => {
+                document.getElementById('contactForm').reset();
+                formMessage.innerHTML = '';
+              }, 3000);
+            });
+          </script>
           <section class="colorlib-footer no-print">
             <div class="colorlib-narrow-content">
               <span class="visitor-label">Profile Views</span>
