@@ -67,6 +67,41 @@ const data = {
       "icon": "book"
     }
   ],
+  "research": [
+    {
+      "title": "Research Project Title 1",
+      "duration": "2023 - 2024",
+      "subtitle": "University of Dhaka | Applied Mathematics",
+      "details": [
+        "Developed novel numerical methods for solving partial differential equations",
+        "Implemented computational algorithms using MATLAB and Python",
+        "Published findings in peer-reviewed journal"
+      ],
+      "tags": [
+        "MATLAB",
+        "Python",
+        "Numerical Analysis",
+        "PDEs"
+      ],
+      "icon": "flask"
+    },
+    {
+      "title": "Research Project Title 2",
+      "duration": "2022 - 2023",
+      "subtitle": "Computational Modeling | COMSOL Multiphysics",
+      "details": [
+        "Conducted finite element analysis for fluid dynamics problems",
+        "Developed mathematical models for heat transfer applications",
+        "Presented research at national mathematics conference"
+      ],
+      "tags": [
+        "COMSOL Multiphysics",
+        "Finite Element Analysis",
+        "Mathematical Modeling"
+      ],
+      "icon": "flask"
+    }
+  ],
   "education": [
     {
       "title": "Master of Science (MSc) in Applied Mathematics",
@@ -166,10 +201,12 @@ export const bio = data.bio;
 
 export const skills = data.skills;
 
-export const experience = data.experience
+export const experience = data.experience;
 
-export const education = data.education
+export const research = data.research;
 
-export const contactLinks = data.contactLinks
+export const education = data.education;
+
+export const contactLinks = data.contactLinks;
 
 export const footer = data.footer;
