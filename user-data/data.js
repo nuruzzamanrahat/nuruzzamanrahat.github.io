@@ -69,35 +69,19 @@ const data = {
   ],
   "research": [
     {
-      "title": "Research Project Title 1",
-      "duration": "2023 - 2024",
-      "subtitle": "University of Dhaka | Applied Mathematics",
+      "title": "Muntasir's Lab on Evolutionary Game Theory and Mathematical Epidemiology",
+      "duration": "November 2023 - Present",
+      "subtitle": "Research Assistant",
       "details": [
-        "Developed novel numerical methods for solving partial differential equations",
-        "Implemented computational algorithms using MATLAB and Python",
-        "Published findings in peer-reviewed journal"
+        "Working on 2 research articles based on Optimal control Strategy and its application in Epidemic Game Theoretic Models.",
+        "Working on a Government funded project on Multi-strain Game Dynamic Epidemic Model using Covid-19 data under the University Grants Commission (UGC).",
+        "Contributing to groundbreaking research in Epidemiology, Vaccination Strategy, Evolutionary Game Theory.",
+        "Facilitating in the development and validation of Mathematical and Computational Models."
       ],
       "tags": [
         "MATLAB",
         "Python",
-        "Numerical Analysis",
-        "PDEs"
-      ],
-      "icon": "flask"
-    },
-    {
-      "title": "Research Project Title 2",
-      "duration": "2022 - 2023",
-      "subtitle": "Computational Modeling | COMSOL Multiphysics",
-      "details": [
-        "Conducted finite element analysis for fluid dynamics problems",
-        "Developed mathematical models for heat transfer applications",
-        "Presented research at national mathematics conference"
-      ],
-      "tags": [
-        "COMSOL Multiphysics",
-        "Finite Element Analysis",
-        "Mathematical Modeling"
+        "Simulations"
       ],
       "icon": "flask"
     }
@@ -107,7 +91,8 @@ const data = {
       "title": "Master of Science (MSc) in Applied Mathematics",
       "duration": "2024 - 2025",
       "subtitle": "University of Dhaka",
-      "details": [""],
+      "details": ["GPA- Appeard",
+        "Project Title: Effective Numerical Method for Solving Ordinary and Partial Differential Equations"],
       "tags": [],
       "icon": "graduation-cap"
     },
