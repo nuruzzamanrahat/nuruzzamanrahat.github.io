@@ -69,19 +69,35 @@ const data = {
   ],
   "research": [
     {
-      "title": "Muntasir's Lab on Evolutionary Game Theory and Mathematical Epidemiology",
-      "duration": "November 2023 - Present",
-      "subtitle": "Research Assistant",
+      "title": "Research Project Title 1",
+      "duration": "2023 - 2024",
+      "subtitle": "University of Dhaka | Applied Mathematics",
       "details": [
-        "Working on 2 research articles based on Optimal control Strategy and its application in Epidemic Game Theoretic Models.",
-        "Working on a Government funded project on Multi-strain Game Dynamic Epidemic Model using Covid-19 data under the University Grants Commission (UGC).",
-        "Contributing to groundbreaking research in Epidemiology, Vaccination Strategy, Evolutionary Game Theory.",
-        "Facilitating in the development and validation of Mathematical and Computational Models."
+        "Developed novel numerical methods for solving partial differential equations",
+        "Implemented computational algorithms using MATLAB and Python",
+        "Published findings in peer-reviewed journal"
       ],
       "tags": [
         "MATLAB",
         "Python",
-        "Simulations"
+        "Numerical Analysis",
+        "PDEs"
+      ],
+      "icon": "flask"
+    },
+    {
+      "title": "Research Project Title 2",
+      "duration": "2022 - 2023",
+      "subtitle": "Computational Modeling | COMSOL Multiphysics",
+      "details": [
+        "Conducted finite element analysis for fluid dynamics problems",
+        "Developed mathematical models for heat transfer applications",
+        "Presented research at national mathematics conference"
+      ],
+      "tags": [
+        "COMSOL Multiphysics",
+        "Finite Element Analysis",
+        "Mathematical Modeling"
       ],
       "icon": "flask"
     }
@@ -91,8 +107,7 @@ const data = {
       "title": "Master of Science (MSc) in Applied Mathematics",
       "duration": "2024 - 2025",
       "subtitle": "University of Dhaka",
-      "details": ["GPA- Appeard",
-        "Project Title: Effective Numerical Method for Solving Ordinary and Partial Differential Equations"],
+      "details": [""],
       "tags": [],
       "icon": "graduation-cap"
     },
@@ -122,6 +137,46 @@ const data = {
       "details": ["GPA-5.00 (out of 5.00)"],
       "tags": [],
       "icon": "graduation-cap"
+    }
+  ],
+  "projects": [
+    {
+      "title": "RAG-based Legal Document Analysis System",
+      "description": "A retrieval-augmented generation pipeline for analyzing legal and audit documents using LLMs and vector databases.",
+      "technologies": ["Python", "LLMs", "RAG", "VectorDBs", "NLP"],
+      "link": "https://github.com/nuruzzamanrahat/project-name"
+    },
+    {
+      "title": "Numerical Methods for PDEs",
+      "description": "Implementation of advanced numerical techniques for solving partial differential equations in MATLAB and Python.",
+      "technologies": ["MATLAB", "Python", "Numerical Analysis"],
+      "link": "https://github.com/nuruzzamanrahat/pde-solver"
+    },
+    {
+      "title": "Heat Transfer Simulation Tool",
+      "description": "Finite element analysis tool for modeling heat transfer in complex geometries using COMSOL Multiphysics.",
+      "technologies": ["COMSOL Multiphysics", "Mathematical Modeling"],
+      "link": "https://github.com/nuruzzamanrahat/heat-transfer"
+    }
+  ],
+  "publications": [
+    {
+      "title": "Novel Approaches to Solving Ordinary and Partial Differential Equations",
+      "journal": "Journal of Applied Mathematics",
+      "year": "2023",
+      "link": "https://doi.org/example-link-1"
+    },
+    {
+      "title": "Computational Methods in Heat Transfer Analysis",
+      "journal": "International Journal of Numerical Methods",
+      "year": "2024",
+      "link": "https://doi.org/example-link-2"
+    },
+    {
+      "title": "Applications of Finite Element Analysis in Fluid Dynamics",
+      "journal": "Applied Mathematical Modeling",
+      "year": "2024",
+      "link": "https://doi.org/example-link-3"
     }
   ],
   "contactLinks": [
@@ -183,15 +238,11 @@ const data = {
 }
 
 export const bio = data.bio;
-
 export const skills = data.skills;
-
 export const experience = data.experience;
-
 export const research = data.research;
-
 export const education = data.education;
-
+export const projects = data.projects;
+export const publications = data.publications;
 export const contactLinks = data.contactLinks;
-
 export const footer = data.footer;
