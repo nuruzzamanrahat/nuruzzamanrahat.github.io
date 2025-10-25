@@ -4,6 +4,8 @@ import {
   education,
   experience,
   research,
+  projects,
+  publications,
   footer,
   contactLinks,
 } from "./user-data/data.js";
@@ -11,7 +13,7 @@ import { html, render } from "https://unpkg.com/lit-html?module";
 
 import { URLs } from "./user-data/urls.js";
 
-const { medium, gitConnected, gitRepo, linkedInImage } = URLs;
+const { gitConnected, linkedInImage } = URLs;
 
 // Set LinkedIn profile image immediately
 function setLinkedInImage() {
@@ -19,27 +21,6 @@ function setLinkedInImage() {
   if (profileImg && linkedInImage) {
     profileImg.src = linkedInImage;
     profileImg.onerror = () => setFallbackProfileImage();
-  }
-}
-
-async function fetchBlogsFromMedium(url) {
-  if (!url) return;
-  try {
-    const response = await fetch(url);
-    const { items, feed } = await response.json();
-    populateBlogs(items, "blogs");
-  } catch (error) {
-    console.error("Error fetching blogs:", error);
-  }
-}
-
-async function fetchReposFromGit(url) {
-  try {
-    const response = await fetch(url);
-    const items = await response.json();
-    populateRepo(items, "repos");
-  } catch (error) {
-    console.error("Error fetching repos:", error);
   }
 }
 
@@ -84,80 +65,29 @@ function populateSkills(items, id) {
   render(skillsTemplate, skillsTag);
 }
 
-function populateBlogs(items, id) {
-  const projectdesign = document.getElementById(id);
-  if (!projectdesign || !items?.length) return;
-  
-  const createCategoryBadges = (categories) => html`
-    <div class="categories-div">
-      ${categories.map(
-        (category) => html` <div class="profile-badge brown-badge">${category}</div> `
-      )}
-    </div>
-  `;
-
-  const blogTemplate = html`
-    ${items.slice(0, 3).map(
-      (item) => html`
-        <div class="blog-card">
-          <div class="blog-content">
-            <a href="${item.link}" target="_blank" class="blog-link">
-              <p class="blog-heading">${item.title}</p>
-              <p class="publish-date">${getBlogDate(item.pubDate)}</p>
-              <p class="blog-description">
-                ${item.content.replace(/<[^>]*>/g, '').trim()}
-              </p>
-              ${createCategoryBadges(item.categories)}
-            </a>
-          </div>
-        </div>
-      `
-    )}
-  `;
-
-  render(blogTemplate, projectdesign);
-}
-
-function populateRepo(items, id) {
+function populateProjects(items, id) {
   const projectdesign = document.getElementById(id);
   if (!projectdesign || !items?.length) return;
 
-  const statsTemplate = (item) => html`
-    <div class="stats-row">
-      <div class="language-div">
-        <span class="language-dot"></span>
-        ${item.language}
-      </div>
-      <div class="stats-div">
-        <img
-          src="https://img.icons8.com/ios-filled/16/666666/star--v1.png"
-          alt="Stars"
-        />
-        ${item.stars}
-      </div>
-      <div class="stats-div">
-        <img
-          src="https://img.icons8.com/ios-filled/16/666666/code-fork.png"
-          alt="Forks"
-        />
-        ${item.forks}
-      </div>
+  const tagsTemplate = (tags) => html`
+    <div class="tags-container">
+      ${tags.map((tag) => html`<div class="profile-badge brown-badge">${tag}</div>`)}
     </div>
   `;
 
-  const repoTemplate = html`
+  const projectTemplate = html`
     <div class="repo-wrapper">
-      ${items.slice(0, 4).map(
+      ${items.map(
         (item) => html`
           <div class="repo-card">
             <a
-              href="https://github.com/${item.author}/${item.name}"
+              href="${item.link}"
               target="_blank"
               class="repo-link"
             >
-              <p class="repo-heading">${item.name}</p>
+              <p class="repo-heading">${item.title}</p>
               <p class="repo-description">${item.description}</p>
-              ${statsTemplate(item)}
+              ${tagsTemplate(item.technologies)}
             </a>
           </div>
         `
@@ -165,7 +95,29 @@ function populateRepo(items, id) {
     </div>
   `;
 
-  render(repoTemplate, projectdesign);
+  render(projectTemplate, projectdesign);
+}
+
+function populatePublications(items, id) {
+  const publicationdesign = document.getElementById(id);
+  if (!publicationdesign || !items?.length) return;
+
+  const publicationTemplate = html`
+    ${items.map(
+      (item) => html`
+        <div class="blog-card">
+          <div class="blog-content">
+            <a href="${item.link}" target="_blank" class="blog-link">
+              <p class="blog-heading">${item.title}</p>
+              <p class="publish-date">${item.journal} • ${item.year}</p>
+            </a>
+          </div>
+        </div>
+      `
+    )}
+  `;
+
+  render(publicationTemplate, publicationdesign);
 }
 
 function populateExp_Edu(items, id) {
@@ -278,57 +230,16 @@ function populateContactLinks(items, id) {
   render(contactLinksTemplate, contactLinks);
 }
 
-function getElement(tagName, className) {
-  let item = document.createElement(tagName);
-  item.className = className;
-  return item;
-}
-
-function getBlogDate(publishDate) {
-  const elapsed = Date.now() - Date.parse(publishDate);
-
-  const msPerSecond = 1000;
-  const msPerMinute = msPerSecond * 60;
-  const msPerHour = msPerMinute * 60;
-  const msPerDay = msPerHour * 24;
-  const msPerMonth = msPerDay * 30;
-  const msPerYear = msPerDay * 365;
-
-  if (elapsed < msPerMinute) {
-    const seconds = Math.floor(elapsed / msPerSecond);
-    return `${seconds} seconds ago`;
-  } else if (elapsed < msPerHour) {
-    const minutes = Math.floor(elapsed / msPerMinute);
-    return `${minutes} minutes ago`;
-  } else if (elapsed < msPerDay) {
-    const hours = Math.floor(elapsed / msPerHour);
-    return `${hours} hours ago`;
-  } else if (elapsed < msPerMonth) {
-    const days = Math.floor(elapsed / msPerDay);
-    return days == 1 ? `${days} day ago` : `${days} days ago`;
-  } else if (elapsed < msPerYear) {
-    const months = Math.floor(elapsed / msPerMonth);
-    return months == 1 ? `${months} month ago` : `${months} months ago`;
-  } else {
-    const years = Math.floor(elapsed / msPerYear);
-    return years == 1 ? `${years} year ago` : `${years} years ago`;
-  }
-}
-
 // Set LinkedIn image first
 setLinkedInImage();
 
 populateBio(bio, "bio");
-
 populateSkills(skills, "skills");
-
-fetchBlogsFromMedium(medium);
-fetchReposFromGit(gitRepo);
+populateProjects(projects, "projects");
+populatePublications(publications, "publications");
 fetchGitConnectedData(gitConnected);
-
 populateExp_Edu(experience, "experience");
 populateExp_Edu(research, "research");
 populateExp_Edu(education, "education");
-
 populateLinks(footer, "footer");
 populateContactLinks(contactLinks, 'contact-links');
