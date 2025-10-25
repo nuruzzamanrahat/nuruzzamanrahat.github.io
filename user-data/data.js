@@ -194,11 +194,6 @@ const data = {
       "label": "GitHub",
       "link": "https://github.com/nuruzzamanrahat",
       "icon": "fa-brands fa-github"
-    },
-    {
-      "label": "Buy me a coffee",
-      "link": "https://www.buymeacoffee.com/r194dME8y",
-      "icon": "fa fa-coffee"
     }
   ],
   "footer": [
@@ -206,12 +201,16 @@ const data = {
       "label": "Links",
       "data": [
         {
-          "text": "Buy me a coffee",
-          "link": "https://www.buymeacoffee.com/r194dME8y"
-        },
-        {
           "text": "Github",
           "link": "https://github.com/nuruzzamanrahat/nuruzzamanrahat.github.io"
+        },
+        {
+          "text": "Custom Link 1",
+          "link": "#"
+        },
+        {
+          "text": "Custom Link 2",
+          "link": "#"
         }
       ]
     },
@@ -219,12 +218,16 @@ const data = {
       "label": "Pages",
       "data": [
         {
-          "text": "Trekking & Himalayan Pass Adventures",
-          "link": "./pages/adventure.html"
+          "text": "Custom Page 1",
+          "link": "#"
         },
         {
-          "text": "Generate JSON data",
-          "link": "./pages/json-generator.html"
+          "text": "Custom Page 2",
+          "link": "#"
+        },
+        {
+          "text": "Custom Page 3",
+          "link": "#"
         }
       ]
     },
