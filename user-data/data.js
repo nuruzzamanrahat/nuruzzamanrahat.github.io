@@ -141,22 +141,22 @@ const data = {
   ],
   "projects": [
     {
-      "title": "RAG-based Legal Document Analysis System",
-      "description": "A retrieval-augmented generation pipeline for analyzing legal and audit documents using LLMs and vector databases.",
-      "technologies": ["Python", "LLMs", "RAG", "VectorDBs", "NLP"],
-      "link": "https://github.com/nuruzzamanrahat/project-name"
+      "title": "Shortest Path Visualizer (Dijkstra's Algorithm)",
+      "description": "This is an interactive web application that finds the shortest path between nodes in a custom-built, weighted, undirected graph. The project visually demonstrates the step-by-step execution of Dijkstra's Algorithm.",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "link": "https://nuruzzamanrahat.github.io/Shortest-Path-Visualizer/"
     },
     {
-      "title": "Numerical Methods for PDEs",
-      "description": "Implementation of advanced numerical techniques for solving partial differential equations in MATLAB and Python.",
-      "technologies": ["MATLAB", "Python", "Numerical Analysis"],
-      "link": "https://github.com/nuruzzamanrahat/pde-solver"
+      "title": "Transportation Problem Solver",
+      "description": "This project is an interactive web application that solves the classic Transportation Problem Using Vogel's Approximation Method (VAM) and MODI method",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "link": "https://nuruzzamanrahat.github.io/Transportation-Problem-Solver/"
     },
     {
-      "title": "Heat Transfer Simulation Tool",
-      "description": "Finite element analysis tool for modeling heat transfer in complex geometries using COMSOL Multiphysics.",
-      "technologies": ["COMSOL Multiphysics", "Mathematical Modeling"],
-      "link": "https://github.com/nuruzzamanrahat/heat-transfer"
+      "title": "Assignment Problem Solver",
+      "description": "This project is an interactive web application that solves the classic Assignment Problem using the Hungarian Method (Munkres Algorithm).",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "link": "https://nuruzzamanrahat.github.io/Assignment-Problem-Solver/"
     }
   ],
   "publications": [
