@@ -107,7 +107,8 @@ const data = {
       "title": "Master of Science (MSc) in Applied Mathematics",
       "duration": "2024 - 2025",
       "subtitle": "University of Dhaka",
-      "details": [""],
+      "details": ["Appeared",
+                 "Thesis: Adaptive Optimal Control for Multi-Vaccination Dynamics and Behavioral Game Theoretic Analysis of Multi-Strain Epidemics in an SIR/V Framework"],
       "tags": [],
       "icon": "graduation-cap"
     },
@@ -141,6 +142,12 @@ const data = {
   ],
   "projects": [
     {
+      "title": "MNIST Handwritten Digit Recognition with PCA",
+      "description": "This project demonstrates handwritten digit recognition on the MNIST dataset using Principal Component Analysis (PCA) for dimensionality reduction combined with Logistic Regression.",
+      "technologies": ["Python"],
+      "link": "https://github.com/nuruzzamanrahat/MNIST-Handwritten-Digit-Recognition-with-PCA"
+    },
+    {
       "title": "Shortest Path Visualizer (Dijkstra's Algorithm)",
       "description": "This is an interactive web application that finds the shortest path between nodes in a custom-built, weighted, undirected graph. The project visually demonstrates the step-by-step execution of Dijkstra's Algorithm.",
       "technologies": ["HTML", "CSS", "JavaScript"],
@@ -161,22 +168,10 @@ const data = {
   ],
   "publications": [
     {
-      "title": "Novel Approaches to Solving Ordinary and Partial Differential Equations",
-      "journal": "Journal of Applied Mathematics",
-      "year": "2023",
+      "title": "Investigating the effect of adaptive optimal control function in epidemic dynamics: Predictions and strategy evolution based on SIR/V game theoretic framework.",
+      "journal": "Under Review",
+      "year": "2025",
       "link": "https://doi.org/example-link-1"
-    },
-    {
-      "title": "Computational Methods in Heat Transfer Analysis",
-      "journal": "International Journal of Numerical Methods",
-      "year": "2024",
-      "link": "https://doi.org/example-link-2"
-    },
-    {
-      "title": "Applications of Finite Element Analysis in Fluid Dynamics",
-      "journal": "Applied Mathematical Modeling",
-      "year": "2024",
-      "link": "https://doi.org/example-link-3"
     }
   ],
   "contactLinks": [
