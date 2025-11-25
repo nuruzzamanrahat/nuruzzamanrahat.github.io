@@ -197,7 +197,8 @@ const data = {
         {
           "text": "Github",
           "link": "https://github.com/nuruzzamanrahat/nuruzzamanrahat.github.io"
-        },
+        }
+        /*,
         {
           "text": "Custom Link 1",
           "link": "#"
@@ -205,7 +206,7 @@ const data = {
         {
           "text": "Custom Link 2",
           "link": "#"
-        }
+        }*/
       ]
     },
     {
@@ -214,7 +215,8 @@ const data = {
         {
           "text": "Custom Page 1",
           "link": "#"
-        },
+        }
+        /*,
         {
           "text": "Custom Page 2",
           "link": "#"
@@ -222,7 +224,7 @@ const data = {
         {
           "text": "Custom Page 3",
           "link": "#"
-        }
+        }*/
       ]
     },
     {
