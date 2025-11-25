@@ -69,23 +69,22 @@ const data = {
   ],
   "research": [
     {
-      "title": "Research Project Title 1",
-      "duration": "2023 - 2024",
-      "subtitle": "University of Dhaka | Applied Mathematics",
+      "title": "Research Assistant",
+      "duration": "Nov 2023 - Present",
+      "subtitle": "Muntasir's Lab on Evolutionary Game Theory and Mathematical Epidemiology",
       "details": [
-        "Developed novel numerical methods for solving partial differential equations",
-        "Implemented computational algorithms using MATLAB and Python",
-        "Published findings in peer-reviewed journal"
+        "Develop a simulation-based multi-strain epidemic game model to analyze how different health interventions influence disease spread.",
+        "Evaluate the effectiveness of dynamic, adaptive intervention strategies in mitigating rapid COVID-19 transmission.",
       ],
-      "tags": [
+      /* "tags": [
         "MATLAB",
         "Python",
         "Numerical Analysis",
         "PDEs"
-      ],
+      ], */
       "icon": "flask"
     },
-    {
+    /*{
       "title": "Research Project Title 2",
       "duration": "2022 - 2023",
       "subtitle": "Computational Modeling | COMSOL Multiphysics",
@@ -100,7 +99,7 @@ const data = {
         "Mathematical Modeling"
       ],
       "icon": "flask"
-    }
+    }*/
   ],
   "education": [
     {
