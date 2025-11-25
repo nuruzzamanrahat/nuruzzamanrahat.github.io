@@ -76,30 +76,9 @@ const data = {
         "Develop a simulation-based multi-strain epidemic game model to analyze how different health interventions influence disease spread.",
         "Evaluate the effectiveness of dynamic, adaptive intervention strategies in mitigating rapid COVID-19 transmission.",
       ],
-      /* "tags": [
-        "MATLAB",
-        "Python",
-        "Numerical Analysis",
-        "PDEs"
-      ], */
+      "tags": [],
       "icon": "flask"
-    },
-    /*{
-      "title": "Research Project Title 2",
-      "duration": "2022 - 2023",
-      "subtitle": "Computational Modeling | COMSOL Multiphysics",
-      "details": [
-        "Conducted finite element analysis for fluid dynamics problems",
-        "Developed mathematical models for heat transfer applications",
-        "Presented research at national mathematics conference"
-      ],
-      "tags": [
-        "COMSOL Multiphysics",
-        "Finite Element Analysis",
-        "Mathematical Modeling"
-      ],
-      "icon": "flask"
-    }*/
+    }
   ],
   "education": [
     {
@@ -198,15 +177,6 @@ const data = {
           "text": "Github",
           "link": "https://github.com/nuruzzamanrahat/nuruzzamanrahat.github.io"
         }
-        /*,
-        {
-          "text": "Custom Link 1",
-          "link": "#"
-        },
-        {
-          "text": "Custom Link 2",
-          "link": "#"
-        }*/
       ]
     },
     {
@@ -216,15 +186,6 @@ const data = {
           "text": "Custom Page 1",
           "link": "#"
         }
-        /*,
-        {
-          "text": "Custom Page 2",
-          "link": "#"
-        },
-        {
-          "text": "Custom Page 3",
-          "link": "#"
-        }*/
       ]
     },
     {
