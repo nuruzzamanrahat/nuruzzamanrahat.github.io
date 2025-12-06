@@ -85,7 +85,7 @@ const data = {
       "title": "Master of Science (MSc) in Applied Mathematics",
       "duration": "2024 - 2025",
       "subtitle": "University of Dhaka",
-      "details": ["Appeared",
+      "details": ["GPA-3.76 (out of 4.00)",
                  "Thesis: Adaptive Optimal Control for Multi-Vaccination Dynamics and Behavioral Game Theoretic Analysis of Multi-Strain Epidemics in an SIR/V Framework"],
       "tags": [],
       "icon": "graduation-cap"
