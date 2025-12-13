@@ -86,8 +86,8 @@ const data = {
       "duration": "2024 - 2025",
       "subtitle": "University of Dhaka",
       "details": ["GPA-3.76 (out of 4.00)",
-                 "Thesis: Adaptive Optimal Control for Multi-Vaccination Dynamics and Behavioral Game Theoretic Analysis of Multi-Strain Epidemics in an SIR/V Framework"],
-                 "Award: National Science and Technology (NST) Fellowship",
+                 "Thesis: Adaptive Optimal Control for Multi-Vaccination Dynamics and Behavioral Game Theoretic Analysis of Multi-Strain Epidemics in an SIR/V Framework",
+                 "Award: National Science and Technology (NST) Fellowship"],
       "tags": [],
       "icon": "graduation-cap"
     },
