@@ -3,7 +3,7 @@ const gitConnectedUsername = "nuruzzamanrahat1738";
 const mediumUsername = "";
 
 // Put your LinkedIn profile image URL here
-const linkedInImageURL = "https://media.licdn.com/dms/image/v2/D4E03AQE7VPf_jLkmmw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1699814740368?e=1765411200&v=beta&t=-gtb3Ts0iC2KCIXSBzLiL_cK88VtJJgSSV7EEP-MUek";
+const linkedInImageURL = "https://media.licdn.com/dms/image/v2/D4E03AQE7VPf_jLkmmw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1699814740368?e=1768435200&v=beta&t=7fnNGkfueieZbwYGhFR2lEd6UGhqt23fuiFmliwW_TY";
 
 const createGitConnectedURL = (username) => `https://gitconnected.com/v1/portfolio/${username}`;
 const gitRepos = (username) => `https://pinned.berrysauce.dev/get/${username}`;
