@@ -82,6 +82,14 @@ const data = {
   ],
   "education": [
     {
+      "title": "PhD in Financial Mathematics",
+      "duration": "2026 - Present",
+      "subtitle": "Florida State University ",
+      "details": ["Award: Graduate Teaching Assistantship"],
+      "tags": [],
+      "icon": "graduation-cap"
+    },
+    {
       "title": "Master of Science (MSc) in Applied Mathematics",
       "duration": "2024 - 2025",
       "subtitle": "University of Dhaka",
